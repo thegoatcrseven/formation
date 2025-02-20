@@ -9,10 +9,22 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="/" class="nav-link">Accueil</a>
-            <a href="/ciel" class="nav-link">CIEL</a>
-            <a href="/snir" class="nav-link">SNIR</a>
-            <a href="/etudes-sup" class="nav-link">Études Supérieures</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Accueil</a>
+                <a href="/ciel" class="nav-link">CIEL</a>
+                <a href="/snir" class="nav-link">SNIR</a>
+                <a href="/etudes-sup" class="nav-link">Études Supérieures</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-user">
+                {% if current_user.is_authenticated %}
+                    <span>{{ current_user.username }}</span>
+                    <a href="{{ url_for('logout') }}" class="nav-link">Déconnexion</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="nav-link">Connexion</a>
+                    <a href="{{ url_for('register') }}" class="nav-link">Inscription</a>
+                {% endif %}
+            </div>
         </div>
     </nav>
 

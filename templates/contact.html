@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Formation{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+    <h1>Contactez-nous</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+        {{ form.hidden_tag() }}
+        
+        <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name(class="form-control") }}
+            {% for error in form.name.errors %}
+            <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class="form-control") }}
+            {% for error in form.email.errors %}
+            <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.subject.label }}
+            {{ form.subject(class="form-control") }}
+            {% for error in form.subject.errors %}
+            <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.message.label }}
+            {{ form.message(class="form-control", rows="5") }}
+            {% for error in form.message.errors %}
+            <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.submit(class="button") }}
+        </div>
+    </form>
+</div>
+{% endblock %}
