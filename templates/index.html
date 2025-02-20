@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil - BSI3 Formation{% endblock %}
+
+{% block content %}
+<div class="welcome-section">
+    <h1>Bienvenue dans la Formation </h1>
+    <p>Découvrez nos différentes filières et parcours de formation pour construire votre avenir professionnel.</p>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <h2>CIEL</h2>
+        <p>Découvrez la filière Cybersécurité, Informatique et réseaux Électroniques.</p>
+        <a href="/ciel" class="button">En savoir plus</a>
+    </div>
+    
+    <div class="feature-card">
+        <h2>SNIR</h2>
+        <p>Explorez les Systèmes Numériques option Informatique et Réseaux.</p>
+        <a href="/snir" class="button">En savoir plus</a>
+    </div>
+    
+    <div class="feature-card">
+        <h2>Études Supérieures</h2>
+        <p>Découvrez les opportunités pour poursuivre vos études.</p>
+        <a href="/etudes-sup" class="button">En savoir plus</a>
+    </div>
+</div>
+{% endblock %}

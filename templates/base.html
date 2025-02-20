@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Formation{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-link">Accueil</a>
+            <a href="/ciel" class="nav-link">CIEL</a>
+            <a href="/snir" class="nav-link">SNIR</a>
+            <a href="/etudes-sup" class="nav-link">Études Supérieures</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="quote-container">
+            <blockquote>
+                "{{ quote }}"
+                <footer>- {{ author }}</footer>
+            </blockquote>
+        </div>
+        
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Formation. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
